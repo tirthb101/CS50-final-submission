@@ -23,43 +23,43 @@ const name = 'book154645123122322123123se'
 const user = 7
 const tran_type = 'RETURN'
 
-export const homepage = async(lib_namess, token_) => {
+const homepage = async (lib_namess, token_) => {
     const formData = new FormData();
     formData.append('lib_name', lib_namess)
     formData.append('token', token_)
 
-    const data =  await axios.post(`${base_url}`, formData, {
+    const data = await axios.post(`${base_url}`, formData, {
         headers: formData.getHeaders()
     }).then(Response => Response.data)
 
     return data
 }
 
-export const login = async(lib_namess, lib_pass) => {
+const login = async (lib_namess, lib_pass) => {
     const formData = new FormData();
     formData.append('lib_name', lib_namess)
     formData.append('lib_pass', lib_pass)
 
-    const data =  await axios.post(`${base_url}/login`, formData, {
+    const data = await axios.post(`${base_url}/login`, formData, {
         headers: formData.getHeaders()
     }).then(Response => Response.data)
 
     return data
 }
 
-export const register = async(lib_namess, lib_pass) => {
+const register = async (lib_namess, lib_pass) => {
     const formData = new FormData();
     formData.append('lib_name', lib_namess)
     formData.append('lib_pass', lib_pass)
 
-    const data =  await axios.post(`${base_url}/register`, formData, {
+    const data = await axios.post(`${base_url}/register`, formData, {
         headers: formData.getHeaders()
     }).then(Response => Response.data)
 
     return data
 }
 
-export const add_user = async(lib_namess, token_, f, m, l) => {
+const add_user = async (lib_namess, token_, f, m, l) => {
     const formData = new FormData();
     formData.append('lib_name', lib_namess)
     formData.append('token', token_)
@@ -67,14 +67,14 @@ export const add_user = async(lib_namess, token_, f, m, l) => {
     formData.append('middle_name', m)
     formData.append('last_name', l)
 
-    const data =  await axios.post(`${base_url}/create_profile`, formData, {
+    const data = await axios.post(`${base_url}/create_profile`, formData, {
         headers: formData.getHeaders()
     }).then(Response => Response.data)
 
     return data
 }
 
-export const withdraw = async(lib_namess, token_, item_id, quan, name, user) => {
+const withdraw = async (lib_namess, token_, item_id, quan, name, user) => {
     const formData = new FormData();
     formData.append('lib_name', lib_namess)
     formData.append('token', token_)
@@ -83,7 +83,7 @@ export const withdraw = async(lib_namess, token_, item_id, quan, name, user) => 
     formData.append('name', name)
     formData.append('user', user)
 
-    const data =  await axios.post(`${base_url}/withdraw`, formData, {
+    const data = await axios.post(`${base_url}/withdraw`, formData, {
         headers: formData.getHeaders()
     }).then(Response => Response.data)
 
@@ -91,21 +91,21 @@ export const withdraw = async(lib_namess, token_, item_id, quan, name, user) => 
 }
 
 
-export const add_stock = async(lib_namess, token_, item_id, quan, name, user, tran_type) => {
+const add_stock = async (lib_namess, token_, item_id, quan, name, user, tran_type) => {
     const formData = new FormData();
     formData.append('lib_name', lib_namess)
     formData.append('token', token_)
-    
+
     formData.append('quan', quan)
     formData.append('name', name)
     formData.append('user', user)
     formData.append('tran_type', tran_type)
 
-    if (item_id != null){
+    if (item_id != null) {
         formData.append('item_id', item_id)
     }
 
-    const data =  await axios.post(`${base_url}/add_stock`, formData, {
+    const data = await axios.post(`${base_url}/add_stock`, formData, {
         headers: formData.getHeaders()
     }).then(Response => Response.data)
 
@@ -113,14 +113,17 @@ export const add_stock = async(lib_namess, token_, item_id, quan, name, user, tr
 }
 
 
-export const transactions  = async(lib_namess, token_) => {
+const transactions = async (lib_namess, token_) => {
     const formData = new FormData();
     formData.append('lib_name', lib_namess)
     formData.append('token', token_)
 
-    const data =  await axios.post(`${base_url}/transactions`, formData, {
+    const data = await axios.post(`${base_url}/transactions`, formData, {
         headers: formData.getHeaders()
     }).then(Response => Response.data)
 
     return data
 }
+
+
+module.exports = { transactions, homepage, add_stock, add_user, register, login, withdraw }
