@@ -20,6 +20,8 @@ const Add = () => {
     const [ _user, setUser] = useContext(Context);
     const navigate = useNavigate();
 
+    
+
     const handlechnage = (event) => {
         const name = event.currentTarget.name;
         const value = event.currentTarget.value;

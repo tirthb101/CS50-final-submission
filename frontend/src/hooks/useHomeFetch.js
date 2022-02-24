@@ -38,7 +38,12 @@ const useHomeFetch = () => {
 
 
     useEffect(() => {
-        homepage(base_url, _user.lib_name, _user.token)
+        if (_user === undefined){
+            navigate('/login');
+        }else {
+            homepage(base_url, _user.lib_name, _user.token)
+        }
+        
     },[])
 
     return{state, loading, error}
