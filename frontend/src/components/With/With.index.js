@@ -5,13 +5,13 @@ import axios from "axios";
 
 import Button from '../Button/Button.index'
 
-import { Wrapper } from "./Add.style";
+import { Wrapper } from "./With.style";
 
 import { Context } from "../../context";
 
 import { base_url } from "../../config";
 
-const Add = () => {
+const With = () => {
 
     const [ first, setFirst] = useState('');
     const [ middle, setMiddle] = useState('');
@@ -44,7 +44,7 @@ const Add = () => {
             bodyFormData.append('last_name', last);
             bodyFormData.append('lib_name', _user.lib_name);
             bodyFormData.append('token', _user.token);
-            const data = await axios({method:'post',url:`${base_url}/create_profile`, data: bodyFormData})
+            const data = await axios({method:'post',url:`${base_url}/withdraw`, data: bodyFormData})
             navigate('/')
             
         }
@@ -57,7 +57,7 @@ const Add = () => {
     return(
         <Wrapper>
             {error ? <div className="error">There was an error</div> : null}
-            <h2 id="black">Add new user:</h2>
+            <h2 id="black">Withdraw:</h2>
             <label for="first">Firs name:</label>
             <input 
                 type="text"
@@ -87,4 +87,4 @@ const Add = () => {
     )
 }
 
-export default Add;
+export default With;

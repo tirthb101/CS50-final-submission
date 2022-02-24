@@ -58,7 +58,7 @@ const Add = () => {
         <Wrapper>
             {error ? <div className="error">There was an error</div> : null}
             <h2 id="black">Add new user:</h2>
-            <label for="first">Firs name:</label>
+            <label for="first">First name:</label>
             <input 
                 type="text"
                 value={first}
