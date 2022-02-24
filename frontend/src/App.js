@@ -1,5 +1,5 @@
 // Import react
-import React, { useContext }  from 'react';
+import React from 'react';
 
 
 // Global styles
@@ -21,7 +21,7 @@ import With from './components/With/With.index';
 import Return from './components/Return/Return.index';
 
 
-import { Context } from './context';
+
 
 
 

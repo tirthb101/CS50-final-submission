@@ -25,7 +25,7 @@ export const Row = styled.div`
     width: 100%;
 `;
 
-export const Text_row = styled.div`
+export const Text = styled.div`
     margin: auto;
     text-align: center;
     width: 150px;

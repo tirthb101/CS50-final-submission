@@ -1,18 +1,17 @@
 import React, { useContext} from 'react';
 
-import { Link } from 'react-router-dom';
-import { Wrapper, Content, Side_Content } from './Header.style';
+import { Link} from 'react-router-dom';
+import { Wrapper, Content, Side } from './Header.style';
 import { Context } from '../../context';
 
 
 
 const Header = () => {
     const [_user, setUser] = useContext(Context);
-
     
         return(<Wrapper>
             <Content>
-                <Side_Content>
+                <Side>
                     <Link to="/">
                         <h1>LMS</h1>
                     </Link>
@@ -29,9 +28,9 @@ const Header = () => {
                         <h1>Return</h1>
                     </Link>
                     <Link to="/create_user">
-                        <h1>New user</h1>
+                        <h1>New Profile</h1>
                     </Link>
-                </Side_Content>
+                </Side>
                 {_user === undefined ? (<side_Content>
                 <Link to="/login">
                     <h1>Login</h1>

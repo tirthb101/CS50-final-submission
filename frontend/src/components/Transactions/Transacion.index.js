@@ -1,7 +1,7 @@
 import react from "react";
 
 
-import { Wrapper, Content,  Text_row,  Row} from './Transaction.style';
+import { Wrapper, Content,  Text,  Row} from './Transaction.style';
 import SpinnerI from "../loader/Loader.index";
 import NotFound from "../notfound";
 
@@ -23,23 +23,23 @@ const Transactions = () => {
             <Content>
                 <Row props={'black'} >
 
-                    <Text_row id='font-big'>Book name</Text_row>
-                    <Text_row id='font-big'>Book id</Text_row>
-                    <Text_row id='font-big'>Quantity</Text_row>
-                    <Text_row id='font-big'>Transaction type</Text_row>
-                    <Text_row id='font-big'>User id</Text_row>
-                    <Text_row id='font-big'>Time Stamp</Text_row>
+                    <Text id='font-big'>Book name</Text>
+                    <Text id='font-big'>Book id</Text>
+                    <Text id='font-big'>Quantity</Text>
+                    <Text id='font-big'>Transaction type</Text>
+                    <Text id='font-big'>User id</Text>
+                    <Text id='font-big'>Time Stamp</Text>
                 </Row>
                 <hr></hr>
                 {state.map((movie) => (
                     <>
                     <Row>
-                        <Text_row>{movie.item_name}</Text_row>
-                        <Text_row>{movie.item_id}</Text_row>
-                        <Text_row>{movie.quantity}</Text_row>
-                        <Text_row>{movie.tran_type}</Text_row>
-                        <Text_row>{movie.user_id}</Text_row>
-                        <Text_row>{movie.Timestamp}</Text_row>
+                        <Text>{movie.item_name}</Text>
+                        <Text>{movie.item_id}</Text>
+                        <Text>{movie.quantity}</Text>
+                        <Text>{movie.tran_type}</Text>
+                        <Text>{movie.user_id}</Text>
+                        <Text>{movie.Timestamp}</Text>
                     </Row>
                     <hr></hr>
                     </>

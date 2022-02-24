@@ -68,7 +68,7 @@ const Add = () => {
             />
             <label for="middle">Middle name:</label>
             <input 
-                type="password"
+                type="text"
                 value={middle}
                 onChange={handlechnage}
                 name="middle"

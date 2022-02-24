@@ -16,6 +16,9 @@ const Return = () => {
     const [ first, setFirst] = useState('');
     const [ middle, setMiddle] = useState('');
     const [ last, setLast] = useState('');
+    const [ itemid, setitemid] = useState('');
+    const [ itemname, setitemname] = useState('');
+    const [ quantity, setquaniy] = useState('');
     const [ error, setError] = useState(false);
     const [ _user, setUser] = useContext(Context);
     const navigate = useNavigate();
@@ -33,6 +36,15 @@ const Return = () => {
         else if ( name === 'last') {
             setLast(value);
         }
+         else if ( name === 'itemid') {
+            setitemid(value);
+        }
+         else if ( name === 'itemname') {
+            setitemname(value);
+        }
+         else if ( name === 'quantity') {
+            setquaniy(value);
+        }
     }
 
     const handlesubmit = async (event) =>{
@@ -44,6 +56,11 @@ const Return = () => {
             bodyFormData.append('last_name', last);
             bodyFormData.append('lib_name', _user.lib_name);
             bodyFormData.append('token', _user.token);
+            bodyFormData.append('item_id', itemid);
+            bodyFormData.append('name', itemname);
+            bodyFormData.append('quan', quantity);
+            bodyFormData.append('tran_type', 'RETURN');
+
             const data = await axios({method:'post',url:`${base_url}/add_stock`, data: bodyFormData})
             navigate('/')
             
@@ -58,7 +75,7 @@ const Return = () => {
         <Wrapper>
             {error ? <div className="error">There was an error</div> : null}
             <h2 id="black">Return:</h2>
-            <label for="first">Firs name:</label>
+            <label for="first">First name:</label>
             <input 
                 type="text"
                 value={first}
@@ -68,7 +85,7 @@ const Return = () => {
             />
             <label for="middle">Middle name:</label>
             <input 
-                type="password"
+                type="text"
                 value={middle}
                 onChange={handlechnage}
                 name="middle"
@@ -81,6 +98,30 @@ const Return = () => {
                 onChange={handlechnage}
                 name="last"
                 id="last"
+            />
+            <label for="itemid">Item id:</label>
+            <input 
+                type="text"
+                value={itemid}
+                onChange={handlechnage}
+                name="itemid"
+                id="itemid"
+            />
+            <label for="itemname">Item name:</label>
+            <input 
+                type="text"
+                value={itemname}
+                onChange={handlechnage}
+                name="itemname"
+                id="itemname"
+            />
+            <label for="quantity">Quanity:</label>
+            <input 
+                type="number"
+                value={quantity}
+                onChange={handlechnage}
+                name="quantity"
+                id="quantity"
             />
             <Button text="Submit" callback={handlesubmit} />
         </Wrapper>

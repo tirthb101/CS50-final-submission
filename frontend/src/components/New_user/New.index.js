@@ -12,10 +12,8 @@ import { Context } from "../../context";
 import { base_url } from "../../config";
 
 const New = () => {
-
-    const [ first, setFirst] = useState('');
-    const [ middle, setMiddle] = useState('');
-    const [ last, setLast] = useState('');
+    const [ itemname, setitemname] = useState('');
+    const [ quantity, setquaniy] = useState('');
     const [ error, setError] = useState(false);
     const [ _user, setUser] = useContext(Context);
     const navigate = useNavigate();
@@ -24,14 +22,11 @@ const New = () => {
         const name = event.currentTarget.name;
         const value = event.currentTarget.value;
 
-        if (name === 'first'){
-            setFirst(value);
+        if ( name === 'itemname') {
+            setitemname(value);
         }
-        else if ( name === 'middle') {
-            setMiddle(value);
-        }
-        else if ( name === 'last') {
-            setLast(value);
+         else if ( name === 'quantity') {
+            setquaniy(value);
         }
     }
 
@@ -39,11 +34,10 @@ const New = () => {
         setError(false);
         try {
             const bodyFormData = new FormData();
-            bodyFormData.append('first_name', first);
-            bodyFormData.append('middle_name', middle);
-            bodyFormData.append('last_name', last);
             bodyFormData.append('lib_name', _user.lib_name);
             bodyFormData.append('token', _user.token);
+            bodyFormData.append('name', itemname);
+            bodyFormData.append('quan', quantity);
             const data = await axios({method:'post',url:`${base_url}/add_stock`, data: bodyFormData})
             navigate('/')
             
@@ -58,29 +52,21 @@ const New = () => {
         <Wrapper>
             {error ? <div className="error">There was an error</div> : null}
             <h2 id="black">Add new stock:</h2>
-            <label for="first">Firs name:</label>
+            <label for="itemname">Item name:</label>
             <input 
                 type="text"
-                value={first}
+                value={itemname}
                 onChange={handlechnage}
-                name="first"
-                id="first"
+                name="itemname"
+                id="itemname"
             />
-            <label for="middle">Middle name:</label>
+            <label for="quantity">Quanity:</label>
             <input 
-                type="password"
-                value={middle}
+                type="number"
+                value={quantity}
                 onChange={handlechnage}
-                name="middle"
-                id="middle"
-            />
-            <label for="last">Last name:</label>
-            <input 
-                type="text"
-                value={last}
-                onChange={handlechnage}
-                name="last"
-                id="last"
+                name="quantity"
+                id="quantity"
             />
             <Button text="Submit" callback={handlesubmit} />
         </Wrapper>

@@ -11,6 +11,7 @@ export const GlobalStyle = createGlobalStyle`
     --fontBig: 1.5rem;
     --fontMed: 1.2rem;
     --fontSmall: 1rem;
+    --fontMidBig: 2rem;
   }
   * {
     box-sizing: border-box;
@@ -21,7 +22,7 @@ export const GlobalStyle = createGlobalStyle`
     padding: 0;
     box-sizing: border-box;
     h1 {
-      font-size: 2rem;
+      font-size: var(--fontMidBig);
       font-weight: 600;
       color: var(--white);
     }
@@ -31,7 +32,7 @@ export const GlobalStyle = createGlobalStyle`
       font-size: var(--fontBig);
     }
     h3 {
-      font-size: 1.1rem;
+      font-size: var(--fontBig);
       font-weight: 600;
       color: var(--white);
     }
@@ -51,5 +52,26 @@ export const GlobalStyle = createGlobalStyle`
     border: 1px solid gray;
     width: 100%;
     }
+
+    @media screen and (max-Width: 1000px){
+        h1 {
+            margin: 5px auto;
+        }
+    }
+
+    @media screen and (max-Width: 1500px){
+      h1 {
+        font-size: var(--fontMed)
+      }
+    }
+
+    @media screen and (max-Width: 1000px){
+      h1 {
+        font-size: var(--fontSmall)
+      }
+    }
+
+
+
   }
 `;
