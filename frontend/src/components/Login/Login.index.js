@@ -11,6 +11,8 @@ import { Context } from "../../context";
 
 import { base_url } from "../../config";
 
+import { persistedState} from '../../Helpers';
+
 const Login = () => {
 
     const [ username, setUsername] = useState('');
@@ -41,6 +43,8 @@ const Login = () => {
 
             if (data.data.code === 200) {
                 setUser({lib_name: username, token : data.data.data});
+                persistedState('token', data.data.data);
+                persistedState('lib_name', username);
                 navigate('/')
             }
         }

@@ -3,6 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { Context } from "../context";
 import { base_url } from "../config";
+import { isPersistedState } from "../Helpers";
 
 const inttial_state = []
 
@@ -39,12 +40,20 @@ const useHomeFetch = () => {
 
     useEffect(() => {
         if (_user === undefined){
-            navigate('/login');
+            const lib_name = isPersistedState('lib_name');
+            const token = isPersistedState('token');
+
+            if (lib_name && token) {
+                seUser({lib_name: lib_name, token : token})
+            }
+            else {
+                navigate('/login')
+            }
         }else {
             homepage(base_url, _user.lib_name, _user.token)
         }
         
-    },[])
+    },[_user])
 
     return{state, loading, error}
 }
