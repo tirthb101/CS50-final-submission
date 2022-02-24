@@ -25,13 +25,31 @@ export const GlobalStyle = createGlobalStyle`
       font-weight: 600;
       color: var(--white);
     }
+
+    #black {
+      color: black;
+      font-size: var(--fontBig);
+    }
     h3 {
       font-size: 1.1rem;
       font-weight: 600;
+      color: var(--white);
+    }
+    h2 {
+      color: var(--white);
     }
     p {
       font-size: 1rem;
       color: var(--white);
+    }
+
+    #font-big {
+      font-size: var(--fontBig);
+    }
+
+    hr {
+    border: 1px solid gray;
+    width: 100%;
     }
   }
 `;

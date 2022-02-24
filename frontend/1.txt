@@ -1,29 +1,4 @@
-const { default: axios } = require("axios")
-const FormData = require('form-data');
-
-
-// Base url
-const base_url = 'http://192.168.0.105:105/'
-
-
-
-// Valid values you can use anytime to troubleshoot the api execpt the TOKEN as it is is set to expire after certain time
-// Tran types are WITH, RETURN AND ADD 
-// User 0 refers to oprator of lib
-
-const lib_namess = 'example22121122131231232133h'
-const token_ = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJsaWJfbmFtZSI6ImV4YW1wbGUyMjEyMTEyMjEzMTIzMTIzMjEzM2giLCJleHAiOjE2NDU0NzU5Mjd9.URTyS_DdYOoYht2q_aIhv2PF49O4jG78bX9VSK-Fg3M'
-const lib_pass = '12312312fasFesff21323'
-const f = 'abcd'
-const m = 'edfg'
-const l = 'ajwnd'
-const item_id = 6
-const quan = 1
-const name = 'book154645123122322123123se'
-const user = 7
-const tran_type = 'RETURN'
-
-const homepage = async (lib_namess, token_) => {
+export const homepage = async (base_url, lib_namess, token_) => {
     const formData = new FormData();
     formData.append('lib_name', lib_namess)
     formData.append('token', token_)
@@ -35,7 +10,7 @@ const homepage = async (lib_namess, token_) => {
     return data
 }
 
-const login = async (lib_namess, lib_pass) => {
+export const login = async (lib_namess, lib_pass) => {
     const formData = new FormData();
     formData.append('lib_name', lib_namess)
     formData.append('lib_pass', lib_pass)
@@ -47,7 +22,7 @@ const login = async (lib_namess, lib_pass) => {
     return data
 }
 
-const register = async (lib_namess, lib_pass) => {
+export const register = async (lib_namess, lib_pass) => {
     const formData = new FormData();
     formData.append('lib_name', lib_namess)
     formData.append('lib_pass', lib_pass)
@@ -59,7 +34,7 @@ const register = async (lib_namess, lib_pass) => {
     return data
 }
 
-const add_user = async (lib_namess, token_, f, m, l) => {
+export const add_user = async (lib_namess, token_, f, m, l) => {
     const formData = new FormData();
     formData.append('lib_name', lib_namess)
     formData.append('token', token_)
@@ -74,7 +49,7 @@ const add_user = async (lib_namess, token_, f, m, l) => {
     return data
 }
 
-const withdraw = async (lib_namess, token_, item_id, quan, name, user) => {
+export const withdraw = async (lib_namess, token_, item_id, quan, name, user) => {
     const formData = new FormData();
     formData.append('lib_name', lib_namess)
     formData.append('token', token_)
@@ -91,7 +66,7 @@ const withdraw = async (lib_namess, token_, item_id, quan, name, user) => {
 }
 
 
-const add_stock = async (lib_namess, token_, item_id, quan, name, user, tran_type) => {
+export const add_stock = async (lib_namess, token_, item_id, quan, name, user, tran_type) => {
     const formData = new FormData();
     formData.append('lib_name', lib_namess)
     formData.append('token', token_)
@@ -113,7 +88,7 @@ const add_stock = async (lib_namess, token_, item_id, quan, name, user, tran_typ
 }
 
 
-const transactions = async (lib_namess, token_) => {
+export const transactions = async (lib_namess, token_) => {
     const formData = new FormData();
     formData.append('lib_name', lib_namess)
     formData.append('token', token_)
@@ -124,6 +99,3 @@ const transactions = async (lib_namess, token_) => {
 
     return data
 }
-
-
-module.exports = { transactions, homepage, add_stock, add_user, register, login, withdraw }

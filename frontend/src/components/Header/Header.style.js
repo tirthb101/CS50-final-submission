@@ -12,19 +12,12 @@ export const Content = styled.div`
     justify-content: space-between;
     padding: 20px 0;
     margin: 0 auto;
-    max-width: var(--maxWidth);
+    width: 80%;
 `;
 
-export const Logoimg = styled.img`
-    width: 100px;
-    @media screen and (max-width: 500px){
-        width: 80px;
-    }
-`;
-
-export const RMDBlogoimg = styled.img`
-    width: 200px;
-     @media screen and (max-width: 500px){
-        width: 150px;
-    }
+export const Side_Content = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 65%;
 `;
